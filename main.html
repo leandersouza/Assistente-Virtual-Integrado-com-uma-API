@@ -182,7 +182,7 @@
                             'Accept': 'application/json',
                             'Content-Type': 'application/json',
                             'X-API-KEY': apiKey,
-                            'Accept-Language': 'pt-br' // Alteração para PT-BR
+                            'Accept-Language': 'pt-br' 
                         },
                         body: JSON.stringify({
                             enable_google_results: true,
@@ -196,7 +196,7 @@
                             if (!response.ok) {
                                 throw new Error('Erro na solicitação à API do ChatSonic');
                             }
-                            // Mova a linha para exibir a mensagem "Assistente está digitando..." aqui
+                          
                             assistantResponseElement.innerHTML = '<div class="assistant-message"></div>';
                             return response.json();
                         })
@@ -204,7 +204,7 @@
                             console.log(data.message);
                             let assistantMessage = data.message;
                             if (assistantMessage.length > 200) {
-                                // Limita a resposta a 200 caracteres e adiciona um botão "Mostrar mais"
+                                
                                 assistantMessage = assistantMessage.substring(0, 200) + '... <button id="showMoreBtn">Mostrar mais</button>';
                             }
                             const assistantMessageElement = document.createElement('div');
@@ -215,7 +215,6 @@
                             const showMoreBtn = document.getElementById('showMoreBtn');
                             if (showMoreBtn) {
                                 showMoreBtn.addEventListener('click', function() {
-                                    // Exibe o texto completo quando o botão "Mostrar mais" é clicado
                                     assistantMessageElement.innerHTML = data.message;
                                 });
                             }
